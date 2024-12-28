@@ -1,12 +1,12 @@
 import React from "react";
 
-const TimeSelector = ({ breakTime, setBreakTimer, timer, setTimer }) => {
+const TimeSelector = ({ breakTime, setBreakTime, timer, setTimer }) => {
     const incrementBreak = () => {
-        if (breakTime < 60) setBreakTimer(breakTime + 1);
+        if (breakTime < 60) setBreakTime(breakTime + 1);
     };
 
     const decrementBreak = () => {
-        if (breakTime > 1) setBreakTimer(breakTime - 1);
+        if (breakTime > 1) setBreakTime(breakTime - 1);
     };
 
     const incrementTimer = () => {

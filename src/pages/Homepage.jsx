@@ -4,7 +4,7 @@ import TimerDisplay from "../components/TimerDisplay";
 import "./Homepage.css";
 
 const Homepage = () => {
-    const [breakTime, setBreakTimer] = useState(5);
+    const [breakTime, setBreakTime] = useState(5);
     const [timer, setTimer] = useState(25);
     const [isActive, setIsActive] = useState(false);
     const [isBreak, setIsBreak] = useState(false);
@@ -13,7 +13,7 @@ const Homepage = () => {
         <div>
             <TimeSelector 
                 breakTime={breakTime}
-                setBreakTimer={setBreakTimer}
+                setBreakTime={setBreakTime}
                 timer={timer}
                 setTimer={setTimer}
             />
@@ -21,6 +21,7 @@ const Homepage = () => {
                 timer={timer}
                 setTimer={setTimer}
                 breakTime={breakTime}
+                setBreakTime={setBreakTime}
                 isActive={isActive}
                 setIsActive={setIsActive}
                 isBreak={isBreak}

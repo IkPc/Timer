@@ -8,6 +8,7 @@ const formatTime = (seconds) => {
 
 const TimerDisplay = ({ timer, setTimer, breakTime, setBreakTime, isActive, setIsActive, isBreak, setIsBreak }) => {
     const [timerSeconds, setTimerSeconds] = useState(timer * 60);
+    const audio = document.getElementById("beep");
 
     useEffect(() => {
         let intervalId;
@@ -17,7 +18,7 @@ const TimerDisplay = ({ timer, setTimer, breakTime, setBreakTime, isActive, setI
                     if (prev > 0) return prev - 1;
         
                     clearInterval(intervalId);
-                    document.getElementById("beep").play();
+                    audio.play();
         
                     // Toggle between break and session
                     const nextIsBreak = !isBreak;
@@ -29,7 +30,7 @@ const TimerDisplay = ({ timer, setTimer, breakTime, setBreakTime, isActive, setI
             }, 1000);
         }
         return () => clearInterval(intervalId);
-    }, [isActive, isBreak, timer, breakTime, setIsActive, setIsBreak]);
+    }, [isActive, isBreak, timer, setBreakTime, breakTime, setIsActive, setIsBreak, audio]);
 
     useEffect(() => {
         setTimerSeconds(timer * 60);
@@ -43,8 +44,12 @@ const TimerDisplay = ({ timer, setTimer, breakTime, setBreakTime, isActive, setI
         setIsActive(false);
         setIsBreak(false);
         setTimerSeconds(timer * 60);
-        setTimer(25);  
-        setBreakTime(5);  
+        setTimer(25);
+        setBreakTime(5);
+        if(audio){
+            audio.pause();
+            audio.currentTime = 0;
+        }
     };
 
     return (
