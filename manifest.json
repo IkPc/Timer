@@ -1,0 +1,6 @@
+{
+  "short_name": "timer",
+  "name": "Timer",
+  "start_url": "https://ikpc.github.io/Timer/",
+  "display": "standalone"
+}
